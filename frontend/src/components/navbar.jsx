@@ -1,36 +1,27 @@
 import React from 'react'
+import { AiFillHome } from "react-icons/ai";
+import { TfiBarChart } from "react-icons/tfi";
+import { MdDashboardCustomize } from "react-icons/md";
+import { FaCircleUser } from "react-icons/fa6";
 
 const navbar = () => {
   return (
-    <nav className="bg-gray-800 text-white px-6 py-4 flex items-center justify-between shadow-md">
-      {/* Logo */}
-      <div className="text-2xl font-bold">
-        MyApp
-      </div>
+ <nav className="bg-white text-[#1D3557] px-3 py-5 flex flex-col items-center gap-[20px] shadow-xl/20 w-max h-[100vh] fixed font-sans">
+  <div className="">Logo</div>
+  <a href="" className="flex flex-col items-center text-sm font-medium hover:text-blue-700 transition">
+    <AiFillHome className="w-6 h-6 mb-1" /> Home
+  </a>
+  <a href="" className="flex flex-col items-center text-sm font-medium hover:text-blue-700 transition">
+    <MdDashboardCustomize className="w-6 h-6 mb-1" /> Dashboard
+  </a>
+  <a href="" className="flex flex-col items-center text-sm font-medium hover:text-blue-700 transition">
+    <TfiBarChart className="w-6 h-6 mb-1" /> Report
+  </a>
+  <a href="" className="flex flex-col items-center text-sm font-medium hover:text-blue-700 transition">
+    <FaCircleUser className="w-6 h-6 mb-1" /> User
+  </a>
+</nav>
 
-      {/* Links (hidden on mobile) */}
-      <ul className="hidden md:flex space-x-6">
-        <li>
-          <a href="#" className="hover:text-gray-300">Home</a>
-        </li>
-        <li>
-          <a href="#" className="hover:text-gray-300">Dashboard</a>
-        </li>
-        <li>
-          <a href="#" className="hover:text-gray-300">Profile</a>
-        </li>
-        <li>
-          <a href="#" className="hover:text-red-400">Logout</a>
-        </li>
-      </ul>
-
-      {/* Mobile Menu Button */}
-      <button className="md:hidden flex items-center px-3 py-2 border rounded text-gray-200 border-gray-400 hover:text-white hover:border-white">
-        <svg className="w-6 h-6 fill-current" viewBox="0 0 20 20">
-          <path d="M0 3h20v2H0zM0 9h20v2H0zM0 15h20v2H0z" />
-        </svg>
-      </button>
-    </nav>
   )
 }
 
