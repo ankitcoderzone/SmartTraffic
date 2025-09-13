@@ -11,10 +11,10 @@ const navbar = () => {
   <a href="" className="flex flex-col items-center text-sm font-medium hover:text-blue-700 transition">
     <AiFillHome className="w-6 h-6 mb-1" /> Home
   </a>
-  <a href="" className="flex flex-col items-center text-sm font-medium hover:text-blue-700 transition">
+  <a href="/" className="flex flex-col items-center text-sm font-medium hover:text-blue-700 transition">
     <MdDashboardCustomize className="w-6 h-6 mb-1" /> Dashboard
   </a>
-  <a href="" className="flex flex-col items-center text-sm font-medium hover:text-blue-700 transition">
+  <a href="/Report" className="flex flex-col items-center text-sm font-medium hover:text-blue-700 transition">
     <TfiBarChart className="w-6 h-6 mb-1" /> Report
   </a>
   <a href="" className="flex flex-col items-center text-sm font-medium hover:text-blue-700 transition">
