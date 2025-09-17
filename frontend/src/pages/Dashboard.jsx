@@ -5,10 +5,10 @@ import TrafficUpdate from '../components/Dashboard/TrafficUpdate.jsx';
 function Dashboard(){
     return (
         <>
-            <div className='flex'>
+            <div className='md:flex'>
                 <Navbar/>
-                <div className='w-[100px] h-[100vh]'></div>
-                <div className='h-max w-[90vw]'>
+                <div className='w-[100vw] h-[10vh] md:w-[100px] md:h-[100vh]'></div>
+                <div className='h-max w-[100vw]'>
                     <TrafficUpdate/>
                 </div>
             </div>

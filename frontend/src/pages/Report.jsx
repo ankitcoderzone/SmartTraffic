@@ -7,7 +7,7 @@ const Report = () => {
     <>
       <div className='flex'>
         <Navbar/>
-        <div className=' w-[100px] h-[100vh]'></div>
+        <div className=' w-[100px] h-[100vh] hidden md:block'></div>
         <div className=' bg-gray-100 h-max w-[100vw] mx-3'>
         <ReportStatus/>
         </div>
