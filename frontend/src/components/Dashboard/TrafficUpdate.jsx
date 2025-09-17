@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
-import { FaChartLine, FaChartBar, FaChartPie, FaArrowUp } from "react-icons/fa";
-import { Card } from "./ui/card";
+import { FaChartLine, FaChartBar, FaChartPie, FaArrowUp, FaDownload } from "react-icons/fa";
 import { TrafficChart } from "../../charts/TrafficChart";
 import { AccidentChart } from "../../charts/AccidentChart";
-import { Button } from "./ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
+import { NewsUpdate } from "../Dashboard/ui/newsUpdate";
 
 const Analytics = () => {
   const analyticsCards = [
@@ -70,34 +69,40 @@ const Analytics = () => {
                 Advanced traffic data analysis and insights
               </p>
             </div>
-            <div className="flex gap-2">
-      <Card className="w-52 rounded-2xl shadow-md border-0 bg-white/90 backdrop-blur bg-white">
-        <Select defaultValue="Last 7 Days">
-          <SelectTrigger
-            className="w-full rounded-xl bg-gray-50 px-4 py-2 text-sm font-medium shadow-sm 
-                       border-0 focus:ring-0 focus:ring-offset-0 focus:outline-none 
-                       hover:bg-gray-100 transition"
-          >
-            <SelectValue />
-          </SelectTrigger>
-          <SelectContent
-            className="rounded-xl shadow-lg border-0 bg-white"
-          >
-            {timeRanges.map((range) => (
-              <SelectItem
-                key={range}
-                value={range}
-                className="relative cursor-pointer pl-8 pr-3 py-2 text-sm rounded-lg hover:bg-gray-100 focus:bg-gray-100 data-[state=checked]:bg-gray-50">
-                {range}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-    </Card>
-    <Card className="  shadow-md border-0 bg-white/90 backdrop-blur bg-white">
-    <Button className="bg-blue-500 text-white">Export Data</Button>
-    </Card>
-              
+
+            {/* Filters & Export */}
+            <div className="flex gap-3">
+              <div className="w-52 rounded-xl shadow-md bg-white/90 backdrop-blur">
+                <Select defaultValue="Last 7 Days">
+                  <SelectTrigger
+                    className="w-full rounded-xl bg-gray-50 px-4 py-2 text-sm font-medium shadow-sm 
+                               border-0 focus:ring-0 focus:ring-offset-0 focus:outline-none 
+                               hover:bg-gray-100 transition"
+                  >
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent className="rounded-xl shadow-lg border-0 bg-white">
+                    {timeRanges.map((range) => (
+                      <SelectItem
+                        key={range}
+                        value={range}
+                        className="relative cursor-pointer pl-8 pr-3 py-2 text-sm rounded-lg hover:bg-gray-100 focus:bg-gray-100 data-[state=checked]:bg-gray-50">
+                        {range}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="shadow-md bg-white/90 backdrop-blur rounded-xl">
+                <button className="flex items-center gap-2 w-full h-full px-4 py-2 rounded-lg 
+                                    bg-gradient-to-r from-blue-600 to-blue-700 text-white 
+                                    text-sm font-medium shadow-md hover:from-blue-700 hover:to-blue-800 
+                                    active:scale-95 transition-all duration-200">
+                  <FaDownload className="text-xs" />
+                  Export Data
+                </button>
+              </div>
             </div>
           </div>
         </motion.div>
@@ -116,12 +121,10 @@ const Analytics = () => {
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.1 * index }}
             >
-              <Card className="p-6 bg-card/80 backdrop-blur-sm border-none hover:shadow-lg transition-all bg-white">
+              <div className="p-6 bg-white/90 backdrop-blur-sm shadow-sm rounded-xl hover:shadow-lg transition-all">
                 <div className="flex items-center justify-between mb-4">
                   <card.icon className={`text-2xl ${card.color}`} />
-                  <Button variant="ghost" size="sm">
-                    <FaChartLine size={14} />
-                  </Button>
+                  <FaChartLine size={14} className="text-gray-400" />
                 </div>
                 <h3 className="text-sm font-medium text-muted-foreground mb-2">
                   {card.title}
@@ -132,32 +135,31 @@ const Analytics = () => {
                 <p className="text-sm text-muted-foreground">
                   {card.subtitle}
                 </p>
-              </Card>
+              </div>
             </motion.div>
           ))}
         </motion.div>
 
         {/* Charts Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8 ">
-         <Card className="bg-card/80 backdrop-blur-sm border-none hover:shadow-lg transition-all h-max bg-white">
-          <motion.div
-            initial={{ x: -30, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.4 }}
-          >
-            <TrafficChart/>
-          </motion.div>
-         </Card> 
-          <Card className="bg-card/80 backdrop-blur-sm border-none hover:shadow-lg transition-all h-max bg-white">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+          <div className="bg-white/90 backdrop-blur-sm shadow-sm rounded-xl hover:shadow-lg transition-all h-max">
             <motion.div
-            initial={{ x: 30, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.5 }}
-          >
-            <AccidentChart />
-          </motion.div>
-          </Card>
-          
+              initial={{ x: -30, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.4 }}
+            >
+              <TrafficChart />
+            </motion.div>
+          </div>
+          <div className="bg-white/90 backdrop-blur-sm shadow-sm rounded-xl hover:shadow-lg transition-all h-max">
+            <motion.div
+              initial={{ x: 30, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              <AccidentChart />
+            </motion.div>
+          </div>
         </div>
 
         {/* Detailed Analytics */}
@@ -167,29 +169,29 @@ const Analytics = () => {
           transition={{ delay: 0.6 }}
           className="grid grid-cols-1 lg:grid-cols-3 gap-6"
         >
-          {/* Traffic Flow Analysis */}
-          <Card className="p-6 bg-card/80 backdrop-blur-sm border-none bg-white">
+          {/* Traffic Flow */}
+          <div className="p-6 bg-white/90 backdrop-blur-sm shadow-sm rounded-xl">
             <h3 className="text-lg font-semibold mb-4">Traffic Flow Analysis</h3>
             <div className="space-y-4">
               <div className="flex justify-between items-center">
                 <span className="text-sm text-muted-foreground">Inbound Traffic</span>
                 <span className="font-medium">65%</span>
               </div>
-              <div className="w-full bg-gray-300 rounded-full h-2">
+              <div className="w-full bg-gray-200 rounded-full h-2">
                 <div className="bg-blue-500 h-2 rounded-full" style={{ width: "65%" }}></div>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-sm text-muted-foreground">Outbound Traffic</span>
                 <span className="font-medium">35%</span>
               </div>
-              <div className="w-full bg-gray-300 rounded-full h-2">
-                <div className="bg-blue-500 h-2 rounded-full" style={{ width: "35%" }}></div>
+              <div className="w-full bg-gray-200 rounded-full h-2">
+                <div className="bg-blue-400 h-2 rounded-full" style={{ width: "35%" }}></div>
               </div>
             </div>
-          </Card>
+          </div>
 
           {/* Route Efficiency */}
-          <Card className="p-6 bg-card/80 backdrop-blur-sm border-none bg-white">
+          <div className="p-6 bg-white/90 backdrop-blur-sm shadow-sm rounded-xl">
             <h3 className="text-lg font-semibold mb-4">Route Efficiency</h3>
             <div className="space-y-3">
               {["Main Street", "Highway 101", "Downtown Ave", "Airport Road"].map((route, index) => (
@@ -208,35 +210,33 @@ const Analytics = () => {
                 </div>
               ))}
             </div>
-          </Card>
+          </div>
 
           {/* Predictions */}
-          <Card className="p-6 bg-card text-card-foreground rounded-xl bg-white shadow-sm backdrop-blur-sm border border-none">
-  <h3 className="text-lg font-semibold mb-4">Traffic Predictions</h3>
-  
-  <div className="space-y-3">
-    {/* Next Hour */}
-    <div className="p-3 rounded-lg bg-muted text-muted-foreground transition-transform hover:scale-[1.02] bg-gray-100">
-      <div className="text-sm font-medium text-foreground">Next Hour</div>
-      <div className="text-xs">Expected increase: <span className="text-success font-semibold">+15%</span></div>
-    </div>
-
-    {/* Evening Rush */}
-    <div className="p-3 rounded-lg bg-muted text-muted-foreground transition-transform hover:scale-[1.02]  bg-gray-100">
-      <div className="text-sm font-medium text-foreground">Evening Rush</div>
-      <div className="text-xs">Peak at <span className="text-warning font-semibold">5:30 PM</span></div>
-    </div>
-
-    {/* Weekend */}
-    <div className="p-3 rounded-lg bg-muted text-muted-foreground transition-transform hover:scale-[1.02] bg-gray-100">
-      <div className="text-sm font-medium text-foreground">Weekend</div>
-      <div className="text-xs">Traffic <span className="text-success font-semibold">25% lower</span></div>
-    </div>
-  </div>
-</Card>
-
+          <div className="p-6 bg-white/90 backdrop-blur-sm shadow-sm rounded-xl">
+            <h3 className="text-lg font-semibold mb-4">Traffic Predictions</h3>
+            <div className="space-y-3">
+              <div className="p-3 rounded-lg bg-blue-50 hover:scale-[1.02] transition-transform">
+                <div className="text-sm font-medium text-blue-700">Next Hour</div>
+                <div className="text-xs">Expected increase: <span className="font-semibold text-blue-600">+15%</span></div>
+              </div>
+              <div className="p-3 rounded-lg bg-yellow-50 hover:scale-[1.02] transition-transform">
+                <div className="text-sm font-medium text-yellow-700">Evening Rush</div>
+                <div className="text-xs">Peak at <span className="font-semibold text-yellow-600">5:30 PM</span></div>
+              </div>
+              <div className="p-3 rounded-lg bg-green-50 hover:scale-[1.02] transition-transform">
+                <div className="text-sm font-medium text-green-700">Weekend</div>
+                <div className="text-xs">Traffic <span className="font-semibold text-green-600">25% lower</span></div>
+              </div>
+            </div>
+          </div>
         </motion.div>
       </motion.div>
+
+      {/* News Section */}
+      <div className="mt-12">
+        <NewsUpdate />
+      </div>
     </div>
   );
 };
