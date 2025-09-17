@@ -8,7 +8,7 @@ function Dashboard(){
             <div className='flex'>
                 <Navbar/>
                 <div className='w-[100px] h-[100vh]'></div>
-                <div className='h-max w-[90vw]'>
+                <div className='h-max w-[100vw] mx-30'>
                     <TrafficUpdate/>
                 </div>
             </div>

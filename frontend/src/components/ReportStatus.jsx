@@ -25,7 +25,7 @@ const ReportStatus = () => {
   const MapRef = useRef();
 
   return (
-    <div className="p-4 md:p-6 space-y-6">
+    <div className="p-4 md:p-6 space-y-6 w-[100%]">
       {/* Header with dropdown */}
       <div className="flex flex-col md:flex-row justify-between md:items-center gap-4">
         <h2 className="text-2xl font-bold">City Overview</h2>

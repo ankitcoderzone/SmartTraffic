@@ -6,7 +6,7 @@ import { FaCircleUser } from "react-icons/fa6";
 import { useLocation, Link } from "react-router-dom";
 
 const navItems = [
-  { name: "Home", icon: <AiFillHome className="w-6 h-6" />, path: "/dashboard" },
+  { name: "Home", icon: <AiFillHome className="w-6 h-6" />, path: "/" },
   { name: "Dashboard", icon: <MdDashboardCustomize className="w-6 h-6" />, path: "/dashboard" },
   { name: "Report", icon: <TfiBarChart className="w-6 h-6" />, path: "/report" },
   { name: "User", icon: <FaCircleUser className="w-6 h-6" />, path: "/user" },

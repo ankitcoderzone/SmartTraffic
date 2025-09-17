@@ -47,7 +47,7 @@ const Analytics = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
+    <div className="min-h-screen bg-gray-50 p-6 w-[1300px] mx-5">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
